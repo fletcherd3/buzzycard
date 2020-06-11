@@ -19,6 +19,8 @@ class DisplayUser extends Component {
                             <TableCell align="right">Bio</TableCell>
                             <TableCell align="right">Snapchat</TableCell>
                             <TableCell align="right">Facebook</TableCell>
+                            <TableCell align="right">TikTok</TableCell>
+                            <TableCell align="right">Email</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
