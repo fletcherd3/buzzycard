@@ -20,7 +20,7 @@ export const BusinessCard = () => (
     >
         {/* <img src='../assets/logo1.png' style={{width: '85%', maxWidth: 400}} /> */}
         <p style={{textAlign: "center"}}>
-              Hello
+              CardID: {this.props.location.query.CardID}
         </p>
     </Grid>
     <Grid 
