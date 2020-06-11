@@ -5,9 +5,11 @@ import axios from 'axios';
 class Form extends Component {
   state = {
     name: '',
-    position: '',
-    company: '',
-    company2: ''
+    bio: '',
+    snapchat: '',
+    facebook: '',
+    tikTok: '',
+    email: ''
   };
 
   handleChange = e => {
@@ -18,24 +20,28 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, position, company, company2 } = this.state;
+    const { name, bio, snapchat, facebook, tikTok, email } = this.state;
     axios({
       url: '/add',
       method: 'POST',
       data: {
         name,
-        position,
-        company,
-        company2
+        bio,
+        snapchat,
+        facebook,
+        tikTok,
+        email
       }
     })
       .then((response) => {
         this.props.addUser(response.data);
         this.setState({
           name: '',
-          company: '',
-          company2: '',
-          position: ''
+          bio: '',
+          snapchat: '',
+          facebook: '',
+          tikTok: '',
+          email: ''
         });
       })
       .catch(() => alert('Failed uploading data'))
@@ -43,7 +49,7 @@ class Form extends Component {
   render() {
     return (
       <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
-        <h2>Tell us about you</h2>
+        <h2>Tell us about yourself</h2>
         <TextField
           id="standard-dense"
           value={this.state.name}
@@ -53,27 +59,43 @@ class Form extends Component {
         />
 
         <TextField
-          name="company"
-          value={this.state.company}
+          name="bio"
+          value={this.state.bio}
           id="standard-dense"
           onChange={this.handleChange}
-          label="Company"
+          label="Bio"
         />
 
         <TextField
-          name="company2"
-          value={this.state.company2}
+          name="snapchat"
+          value={this.state.snapchat}
           id="standard-dense"
           onChange={this.handleChange}
-          label="Company2"
+          label="Snapchat"
         />
 
         <TextField
-          name="position"
-          value={this.state.position}
+          name="facebook"
+          value={this.state.facebook}
           id="standard-dense"
           onChange={this.handleChange}
-          label="Position"
+          label="Facebook"
+        />
+
+        <TextField
+          name="tikTok"
+          value={this.state.tikTok}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="TikTok"
+        />
+
+        <TextField
+          name="email"
+          value={this.state.email}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="Email"
         />
 
         <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>

@@ -16,18 +16,20 @@ class DisplayUser extends Component {
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell align="right">Company</TableCell>
-                            <TableCell align="right">Company2</TableCell>
-                            <TableCell align="right">Position</TableCell>
+                            <TableCell align="right">Bio</TableCell>
+                            <TableCell align="right">Snapchat</TableCell>
+                            <TableCell align="right">Facebook</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {users.map(({ name, position, company, company2 }, key) => (
+                        {users.map(({ name, bio, snapchat, facebook, tikTok, email }, key) => (
                             <TableRow key={key}>
                                 <TableCell component="th" scope="row"> {name ? name : 'No Name Found'} </TableCell>
-                                <TableCell align="right">{company ? company : 'No Company Found'}</TableCell>
-                                <TableCell align="right">{company2 ? company2 : 'No Company2 Found'}</TableCell>
-                                <TableCell align="right">{position ? position : 'No Position Found'}</TableCell>
+                                <TableCell align="right">{bio ? bio : 'No Bio Found'}</TableCell>
+                                <TableCell align="right">{snapchat ? snapchat : 'No Snapchat Found'}</TableCell>
+                                <TableCell align="right">{facebook ? facebook : 'No Facebook Found'}</TableCell>
+                                <TableCell align="right">{tikTok ? tikTok : 'No TikTok Found'}</TableCell>
+                                <TableCell align="right">{email ? email : 'No Email Found'}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
