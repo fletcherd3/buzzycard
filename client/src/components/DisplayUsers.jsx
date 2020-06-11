@@ -16,6 +16,7 @@ class DisplayUser extends Component {
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
+                            <TableCell align="right">Card ID</TableCell>
                             <TableCell align="right">Bio</TableCell>
                             <TableCell align="right">Snapchat</TableCell>
                             <TableCell align="right">Facebook</TableCell>
@@ -24,9 +25,10 @@ class DisplayUser extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {users.map(({ name, bio, snapchat, facebook, tikTok, email }, key) => (
+                        {users.map(({ name, cardID, bio, snapchat, facebook, tikTok, email }, key) => (
                             <TableRow key={key}>
                                 <TableCell component="th" scope="row"> {name ? name : 'No Name Found'} </TableCell>
+                                <TableCell align="right">{cardID ? cardID : 'No Card ID Found'}</TableCell>
                                 <TableCell align="right">{bio ? bio : 'No Bio Found'}</TableCell>
                                 <TableCell align="right">{snapchat ? snapchat : 'No Snapchat Found'}</TableCell>
                                 <TableCell align="right">{facebook ? facebook : 'No Facebook Found'}</TableCell>

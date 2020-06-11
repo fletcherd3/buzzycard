@@ -10,10 +10,11 @@ router.post('/add', async (req, res) => {
             statusCode: 403
         });
     }
-    const { name, bio, snapchat, facebook, tikTok, email, } = req.body;
+    const { name, cardID, bio, snapchat, facebook, tikTok, email, } = req.body;
 
     const newUser = new User({
         name,
+        cardID,
         bio,
         snapchat,
         facebook,
@@ -27,6 +28,7 @@ router.post('/add', async (req, res) => {
             message: 'Data successfully saved',
             statusCode: 200,
             name,
+            cardID,
             bio,
             snapchat,
             facebook,

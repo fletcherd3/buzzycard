@@ -26,9 +26,9 @@ class App extends Component {
   };
 
 
-  addUser = ({ name, bio, snapchat, facebook, tikTok, email }) => {
+  addUser = ({ name, cardID, bio, snapchat, facebook, tikTok, email }) => {
     this.setState({
-      users: [...this.state.users, { name, bio, snapchat, facebook, tikTok, email }]
+      users: [...this.state.users, { name, cardID, bio, snapchat, facebook, tikTok, email }]
     });
   };
 

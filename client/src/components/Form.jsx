@@ -5,6 +5,7 @@ import axios from 'axios';
 class Form extends Component {
   state = {
     name: '',
+    cardID: null,
     bio: '',
     snapchat: '',
     facebook: '',
@@ -20,12 +21,13 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, bio, snapchat, facebook, tikTok, email } = this.state;
+    const { name, cardID, bio, snapchat, facebook, tikTok, email } = this.state;
     axios({
       url: '/add',
       method: 'POST',
       data: {
         name,
+        cardID,
         bio,
         snapchat,
         facebook,
@@ -37,6 +39,7 @@ class Form extends Component {
         this.props.addUser(response.data);
         this.setState({
           name: '',
+          cardID: null,
           bio: '',
           snapchat: '',
           facebook: '',
@@ -96,6 +99,14 @@ class Form extends Component {
           id="standard-dense"
           onChange={this.handleChange}
           label="Email"
+        />
+
+        <TextField
+          id="standard-dense"
+          value={this.state.cardID}
+          label="Card ID"
+          name="cardID"
+          onChange={this.handleChange}
         />
 
         <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
