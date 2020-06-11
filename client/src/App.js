@@ -40,7 +40,7 @@ class App extends Component {
               <Route path="/" exact
                 render={(props) => <Form {...props} addUser={this.addUser} />}
                 />
-                <Route path="/user" exact
+                <Route path="/user:id" exact
                 render={(props) => <BusinessCard {...props} />}
                 />
                 <Route path="/table" exact
