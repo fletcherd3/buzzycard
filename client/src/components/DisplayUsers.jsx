@@ -20,7 +20,7 @@ class DisplayUser extends Component {
             .then((response) => {
             const { users } = response.data;
             console.log(users)
-            this.setState({ users: [...this.state.users, ...users] })
+            this.setState({ users: [users] })
             })
             .catch(() => alert('Error fetching new users'));
     };
