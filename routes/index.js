@@ -61,20 +61,20 @@ router.get('/users', async (req, res) => {
        
 });
 
-router.get('/user:cardId', async (req, res) => {
+// router.get('/user:cardId', async (req, res) => {
 
-    try {
-        const user = await User.find({type: "cardID", value: 123});
+//     try {
+//         const user = await User.find({type: "cardID", value: 123});
 
-        return res.json({
-            user
-        });
-    } catch (error) {
-        return res.status(500).json({
-            message: 'Internal Server error'
-        });
-    }
+//         return res.json({
+//             user
+//         });
+//     } catch (error) {
+//         return res.status(500).json({
+//             message: 'Internal Server error'
+//         });
+//     }
        
-});
+// });
 
 module.exports = router;
