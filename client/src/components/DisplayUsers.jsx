@@ -16,7 +16,7 @@ class DisplayUser extends Component {
       };
     
     fetchUsers = () => {
-    axios.get('/users')
+    await axios.get('/users')
         .then((response) => {
         const { users } = response.data;
         console.log(users)
