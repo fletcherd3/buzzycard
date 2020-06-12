@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Form from './components/Form';
 import DisplayUsers from './components/DisplayUsers';
-import { BusinessCard } from './components/BusinessCard';
+import BusinessCard from './components/BusinessCard';
 import { NotFound } from './components/notfound';
 import axios from 'axios';
 import './App.css';
@@ -40,7 +40,7 @@ class App extends Component {
               <Route path="/" exact
                 render={(props) => <Form {...props} addUser={this.addUser} />}
                 />
-                <Route path="/user:id" exact
+                <Route path="/user" exact
                 render={(props) => <BusinessCard {...props} />}
                 />
                 <Route path="/table" exact
