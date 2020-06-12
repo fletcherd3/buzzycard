@@ -7,11 +7,14 @@ class BusinessCard extends React.Component {
 
   constructor(props) {
     super(props)
-    params = QueryString.parse(this.props.location.search)
+    const params = QueryString.parse(this.props.location.search)
     this.state = {
-      CardID: parseInt(params.userId)
+      CardID: parseInt(params.cardId)
     }
-    this.handleClick = this.handleClick.bind(this);
+    console.log(this.state.CardID)
+    if (isNaN(this.state.CardID)) {
+      this.props.history.push('/')
+    }
   }
 
 
@@ -36,7 +39,7 @@ class BusinessCard extends React.Component {
         >
             {/* <img src='../assets/logo1.png' style={{width: '85%', maxWidth: 400}} /> */}
             <p style={{textAlign: "center"}}>
-                  CardID: {this.props.location.search}
+                  CardID: {this.state.CardID}
             </p>
         </Grid>
         <Grid 
@@ -58,4 +61,4 @@ class BusinessCard extends React.Component {
 
 }
 
-export default Slideshow
+export default BusinessCard
