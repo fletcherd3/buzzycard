@@ -48,7 +48,7 @@ router.post('/add', async (req, res) => {
 router.get('/users', async (req, res) => {
 
     try {
-        const users = await User.findOne({});
+        const users = await User.find({});
 
         return res.json({
             users
