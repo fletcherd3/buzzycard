@@ -35,18 +35,6 @@ class Form extends Component {
         email
       }
     })
-      .then((response) => {
-        this.props.addUser(response.data);
-        this.setState({
-          name: '',
-          cardID: null,
-          bio: '',
-          snapchat: '',
-          facebook: '',
-          tikTok: '',
-          email: ''
-        });
-      })
       .catch(() => alert('Failed uploading data'))
   };
   render() {
