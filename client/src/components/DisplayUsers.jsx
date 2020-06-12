@@ -20,7 +20,7 @@ class DisplayUser extends Component {
             .then((response) => {
             const { users } = response.data;
             console.log(users)
-            this.setState({ users: [users] })
+            this.setState({ users: [...this.state.users, ...users] })
             })
             .catch(() => alert('Error fetching new users'));
     };
@@ -57,7 +57,7 @@ class DisplayUser extends Component {
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table> : null}
+                </Table> : {hi}}
             </div>
         );
     }
