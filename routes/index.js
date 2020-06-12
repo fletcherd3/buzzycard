@@ -48,7 +48,7 @@ router.post('/add', async (req, res) => {
 router.get('/users', async (req, res) => {
 
     try {
-        const user = await User.find({type: "cardID", value: 1234});
+        const user = await User.findOne({cardID: 1234});
 
         return res.json({
             users
