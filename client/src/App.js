@@ -8,30 +8,6 @@ import axios from 'axios';
 import './App.css';
 
 class App extends Component {
-  state = {
-    users: []
-  }
-
-  componentDidMount = () => {
-    this.fetchUsers();
-  };
-
-  fetchUsers = () => {
-    axios.get('/users')
-      .then((response) => {
-        const { users } = response.data;
-        console.log(users)
-        this.setState({ users: [...this.state.users, ...users] })
-      })
-      .catch(() => alert('Error fetching new users'));
-  };
-
-
-  addUser = ({ name, cardID, bio, snapchat, facebook, tikTok, email }) => {
-    this.setState({
-      users: [...this.state.users, { name, cardID, bio, snapchat, facebook, tikTok, email }]
-    });
-  };
 
   render() {
     return (
@@ -39,7 +15,7 @@ class App extends Component {
         <BrowserRouter>
               <Switch>
               <Route path="/" exact
-                render={(props) => <Form {...props} addUser={this.addUser} />}
+                render={(props) => <Form {...props} />}
                 />
                 <Route path="/user" exact
                 render={(props) => <BusinessCard {...props} />}
