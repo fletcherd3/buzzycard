@@ -15,19 +15,20 @@ class DisplayUser extends Component {
         this.fetchUsers();
       };
     
-      fetchUsers = () => {
-        axios.get('/users')
-          .then((response) => {
-            const { users } = response.data;
-            console.log(users)
-            this.setState({ users: [...this.state.users, ...users] })
-          })
-          .catch(() => alert('Error fetching new users'));
-      };
+    fetchUsers = () => {
+    axios.get('/users')
+        .then((response) => {
+        const { users } = response.data;
+        console.log(users)
+        this.setState({ users: [...this.state.users, ...users] })
+        })
+        .catch(() => alert('Error fetching new users'));
+    };
 
     render() {
         const allUsers = this.props.users;
         const users = !isEmpty(allUsers) ? allUsers : [];
+        console.log(isEmpty)
 
         return (
             <div className="users">
