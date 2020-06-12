@@ -21,7 +21,7 @@ class App extends Component {
                 render={(props) => <BusinessCard {...props} />}
                 />
                 <Route path="/table" exact
-                render={(props) => <DisplayUsers {...props} users={this.state.users} />}
+                render={(props) => <DisplayUsers {...props} />}
                 />
                 <Route path ="*" exact component={NotFound} />
               </Switch>
