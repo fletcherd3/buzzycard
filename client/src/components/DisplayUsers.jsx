@@ -11,7 +11,7 @@ class DisplayUser extends Component {
         users: []
       }
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         await this.fetchUsers();
       };
     
