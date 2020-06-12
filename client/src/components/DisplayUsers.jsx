@@ -11,11 +11,11 @@ class DisplayUser extends Component {
         users: []
       }
 
-    async componentDidMount() {
-        await this.fetchUsers();
+    componentDidMount() {
+        this.fetchUsers();
       };
     
-    async fetchUsers() {
+    fetchUsers() {
         axios.get('/users')
             .then((response) => {
             const { users } = response.data;
