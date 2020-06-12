@@ -26,9 +26,9 @@ class DisplayUser extends Component {
     };
 
     render() {
-        const allUsers = this.props.users;
+        const allUsers = this.state.users;
         const users = !isEmpty(allUsers) ? allUsers : [];
-        console.log(isEmpty)
+        console.log(isEmpty(allUsers))
 
         return (
             <div className="users">
