@@ -57,7 +57,7 @@ class DisplayUser extends Component {
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table> : {hi}}
+                </Table> : null}
             </div>
         );
     }
