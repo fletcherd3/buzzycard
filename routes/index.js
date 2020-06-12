@@ -48,10 +48,26 @@ router.post('/add', async (req, res) => {
 router.get('/users', async (req, res) => {
 
     try {
-        const users = await User.find({});
+        const user = await User.find({type: "cardID", value: 1234});
 
         return res.json({
             users
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Internal Server error'
+        });
+    }
+       
+});
+
+router.get('/user:cardId', async (req, res) => {
+
+    try {
+        const user = await User.find({type: "cardID", value: 123});
+
+        return res.json({
+            user
         });
     } catch (error) {
         return res.status(500).json({
