@@ -12,17 +12,17 @@ class DisplayUser extends Component {
       }
 
     componentWillMount = () => {
-        this.fetchUsers();
+        await this.fetchUsers();
       };
     
-    fetchUsers = () => {
-    await axios.get('/users')
-        .then((response) => {
-        const { users } = response.data;
-        console.log(users)
-        this.setState({ users: [...this.state.users, ...users] })
-        })
-        .catch(() => alert('Error fetching new users'));
+    async fetchUsers() {
+        axios.get('/users')
+            .then((response) => {
+            const { users } = response.data;
+            console.log(users)
+            this.setState({ users: [...this.state.users, ...users] })
+            })
+            .catch(() => alert('Error fetching new users'));
     };
 
     render() {
