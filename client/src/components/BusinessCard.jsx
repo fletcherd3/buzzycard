@@ -35,8 +35,8 @@ class BusinessCard extends Component {
           const { user_data } = response.data;
           console.log(user_data)
           this.setState({ users: user_data })
+          console.log(this.state.user)
           })
-          console.log(this.state.user_data)
           .catch(() => this.setState({newUser: true}));
   };
 
@@ -130,7 +130,7 @@ class BusinessCard extends Component {
           <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
 
         </form>
-        : <div> Welcome {this.state.users.name}</div>}
+        : <div> Welcome {this.state.user.name}</div>}
       </div>
     );
   }
