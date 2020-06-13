@@ -63,7 +63,7 @@ router.get('/users', async (req, res) => {
        
 });
 
-router.get('/users/:id', async (req, res) => {
+router.get('/test/:id', async (req, res) => {
 
     try {
         const user = await User.find({_id:new ObjectId("5ee3543f1f4cba00171eb0a7")})

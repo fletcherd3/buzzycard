@@ -13,6 +13,21 @@ class Form extends Component {
     email: ''
   };
 
+  componentDidMount() {
+    this.fetchUsers();
+  };
+
+fetchUsers() {
+    axios.get('/test/123')
+        .then((response) => {
+        const { users } = response.data;
+        console.log(users)
+        // this.setState({ users: [...this.state.users, ...users] })
+        // })
+        // console.log(this.state.users)
+        .catch(() => alert('Error fetching new users'));
+};
+
   handleChange = e => {
     const name = e.target.name;
     const value = e.target.value;
