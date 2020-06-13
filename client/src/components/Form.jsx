@@ -9,6 +9,8 @@ class Form extends Component {
     this.state = {
       id: parseInt(params.id),
       users: [],
+      newUser: false,
+
       name: '',
       cardID: null,
       bio: '',
@@ -34,7 +36,7 @@ class Form extends Component {
           // this.setState({ users: [...this.state.users, ...users] })
           })
           // console.log(this.state.users)
-          .catch(() => alert('Error fetching new users'));
+          .catch(() => this.setState({newUser: true}));
   };
 
   handleChange = e => {
