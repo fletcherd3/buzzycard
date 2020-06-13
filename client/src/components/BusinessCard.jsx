@@ -19,20 +19,20 @@ class BusinessCard extends React.Component {
     }
   }
 
-componentDidMount() {
-    this.fetchUsers();
-  };
+  componentDidMount() {
+      this.fetchUsers();
+    };
 
-fetchUsers() {
-    axios.get('/users/123')
-        .then((response) => {
-        const { users } = response.data;
-        console.log(users)
-        this.setState({ users: [...this.state.users, ...users] })
-        })
-        console.log(this.state.users)
-        .catch(() => alert('Error fetching new users'));
-};
+  fetchUsers() {
+      axios.get('/users/123')
+          .then((response) => {
+          const { users } = response.data;
+          console.log(users)
+          this.setState({ users: [...this.state.users, ...users] })
+          })
+          console.log(this.state.users)
+          .catch(() => alert('Error fetching new users'));
+  };
 
 
 

@@ -17,16 +17,16 @@ class Form extends Component {
     this.fetchUsers();
   };
 
-fetchUsers() {
-    axios.get('/test/123')
-        .then((response) => {
-        const { users } = response.data;
-        console.log(users)
-        // this.setState({ users: [...this.state.users, ...users] })
-        // })
-        // console.log(this.state.users)
-        .catch(() => alert('Error fetching new users'));
-};
+  fetchUsers() {
+      axios.get('/test/123')
+          .then((response) => {
+          const { users } = response.data;
+          console.log(users)
+          // this.setState({ users: [...this.state.users, ...users] })
+          })
+          // console.log(this.state.users)
+          .catch(() => alert('Error fetching new users'));
+  };
 
   handleChange = e => {
     const name = e.target.name;
