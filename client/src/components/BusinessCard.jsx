@@ -9,7 +9,7 @@ class BusinessCard extends Component {
     const params = QueryString.parse(this.props.location.search)
     this.state = {
       id: params.id,
-      users: [],
+      user: null,
       newUser: false,
 
       name: '',
@@ -32,11 +32,11 @@ class BusinessCard extends Component {
   fetchUsers() {
       axios.get(`/users/${this.state.id}`)
           .then((response) => {
-          const { users } = response.data;
-          console.log(users)
-          // this.setState({ users: [...this.state.users, ...users] })
+          const { user_data } = response.data;
+          console.log(user_data)
+          this.setState({ users: user_data })
           })
-          // console.log(this.state.users)
+          console.log(this.state.user_data)
           .catch(() => this.setState({newUser: true}));
   };
 
