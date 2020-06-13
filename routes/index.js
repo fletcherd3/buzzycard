@@ -67,7 +67,7 @@ router.get('/users/:id', async (req, res) => {
 
     try {
         const user = await User.findById("5ee3543f1f4cba00171eb0a7");
-
+        console.log(res)
         return res.json({
             user
         });

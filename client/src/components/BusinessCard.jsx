@@ -30,6 +30,7 @@ fetchUsers() {
         console.log(users)
         this.setState({ users: [...this.state.users, ...users] })
         })
+        console.log(this.state.users)
         .catch(() => alert('Error fetching new users'));
 };
 
