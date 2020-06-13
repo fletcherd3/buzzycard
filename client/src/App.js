@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import BusinessCard from './components/BusinessCard';
 import DisplayUsers from './components/DisplayUsers';
-import BusinessCard from './components/BusinessCard';
 import { NotFound } from './components/notfound';
 import axios from 'axios';
 import './App.css';
