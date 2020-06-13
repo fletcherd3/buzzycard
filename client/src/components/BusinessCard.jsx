@@ -1,81 +1,139 @@
-import React from 'react';
-import { Grid, TextField, Button  } from '@material-ui/core';
-import QueryString from 'query-string';
+import React, { Component } from 'react';
+import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
+import QueryString from 'query-string';
 
-
-class BusinessCard extends React.Component {
-
+class BusinessCard extends Component {
   constructor(props) {
     super(props)
     const params = QueryString.parse(this.props.location.search)
     this.state = {
-      CardID: parseInt(params.cardId),
-      users: []
+      id: params.id,
+      users: [],
+      newUser: false,
+
+      name: '',
+      cardID: null,
+      bio: '',
+      snapchat: '',
+      facebook: '',
+      tikTok: '',
+      email: ''
     }
-    console.log(this.state.CardID)
-    if (isNaN(this.state.CardID)) {
-      this.props.history.push('/')
-    }
+    // if (isNaN(this.state.CardID)) {
+    //   this.props.history.push('/')
+    // }
   }
 
   componentDidMount() {
-      this.fetchUsers();
-    };
+    this.fetchUsers();
+  };
 
   fetchUsers() {
-      axios.get('/users/123')
+      axios.get(`/users/${this.state.id}`)
           .then((response) => {
           const { users } = response.data;
           console.log(users)
-          this.setState({ users: [...this.state.users, ...users] })
+          // this.setState({ users: [...this.state.users, ...users] })
           })
-          console.log(this.state.users)
-          .catch(() => alert('Error fetching new users'));
+          // console.log(this.state.users)
+          .catch(() => this.setState({newUser: true}));
   };
 
+  handleChange = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value });
+  };
 
-
+  submit = e => {
+    e.preventDefault();
+    const { name, cardID, bio, snapchat, facebook, tikTok, email } = this.state;
+    axios({
+      url: '/add',
+      method: 'POST',
+      data: {
+        name,
+        cardID,
+        bio,
+        snapchat,
+        facebook,
+        tikTok,
+        email
+      }
+    })
+      .catch(() => alert('Failed uploading data'))
+  };
   render() {
     return (
-      <React.Fragment>
-        <Grid 
-          container
-          spacing={5}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{minHeight: `100vh`, width: '100%'}}
-        >
-        <Grid 
-        item 
-        container 
-        direction="column"
-        justify="center"
-        alignItems="center"
-        >
-            {/* <img src='../assets/logo1.png' style={{width: '85%', maxWidth: 400}} /> */}
-            <p style={{textAlign: "center"}}>
-                  CardID: {this.state.CardID} <br/>
-            </p>
-        </Grid>
-        <Grid 
-        item 
-        container 
-        direction="column"
-        justify="center"
-        alignItems="center"
-        >
-            <p style={{textAlign: "center"}}>
-                  Whether you're new here or not, get signed in with the Google button below.
-            </p>
-        </Grid>
-  
-        </Grid>
-      </React.Fragment>
-    )
-  }
+      <div>
+        {this.state.newUser ? 
+      
+        <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
+          <h2>Tell us about yourself</h2>
+          <TextField
+            id="standard-dense"
+            value={this.state.name}
+            label="Name"
+            name="name"
+            onChange={this.handleChange}
+          />
 
+          <TextField
+            name="bio"
+            value={this.state.bio}
+            id="standard-dense"
+            onChange={this.handleChange}
+            label="Bio"
+          />
+
+          <TextField
+            name="snapchat"
+            value={this.state.snapchat}
+            id="standard-dense"
+            onChange={this.handleChange}
+            label="Snapchat"
+          />
+
+          <TextField
+            name="facebook"
+            value={this.state.facebook}
+            id="standard-dense"
+            onChange={this.handleChange}
+            label="Facebook"
+          />
+
+          <TextField
+            name="tikTok"
+            value={this.state.tikTok}
+            id="standard-dense"
+            onChange={this.handleChange}
+            label="TikTok"
+          />
+
+          <TextField
+            name="email"
+            value={this.state.email}
+            id="standard-dense"
+            onChange={this.handleChange}
+            label="Email"
+          />
+
+          <TextField
+            id="standard-dense"
+            value={this.state.cardID}
+            label="Card ID"
+            name="cardID"
+            onChange={this.handleChange}
+          />
+
+          <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
+
+        </form>
+        : <div> Welcome {this.state.users.name}</div>}
+      </div>
+    );
+  }
 }
 
-export default BusinessCard
+export default Form;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Form from './components/Form';
+import BusinessCard from './components/BusinessCard';
 import DisplayUsers from './components/DisplayUsers';
 import BusinessCard from './components/BusinessCard';
 import { NotFound } from './components/notfound';
@@ -15,9 +15,6 @@ class App extends Component {
         <BrowserRouter>
               <Switch>
               <Route path="/" exact
-                render={(props) => <Form {...props} />}
-                />
-                <Route path="/user" exact
                 render={(props) => <BusinessCard {...props} />}
                 />
                 <Route path="/table" exact
