@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
+import QueryString from 'query-string';
 
 class Form extends Component {
   constructor(props) {
