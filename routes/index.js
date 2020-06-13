@@ -44,6 +44,22 @@ router.post('/add', async (req, res) => {
     }
 });
 
+router.get('/users:id', async (req, res) => {
+
+    try {
+        const user = await User.findById("5ee3543f1f4cba00171eb0a7");
+
+        return res.json({
+            user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Internal Server error'
+        });
+    }
+       
+});
+
 
 router.get('/users', async (req, res) => {
 
@@ -61,20 +77,5 @@ router.get('/users', async (req, res) => {
        
 });
 
-// router.get('/user:cardId', async (req, res) => {
-
-//     try {
-//         const user = await User.find({cardID: 1234});
-
-//         return res.json({
-//             user
-//         });
-//     } catch (error) {
-//         return res.status(500).json({
-//             message: 'Internal Server error'
-//         });
-//     }
-       
-// });
 
 module.exports = router;

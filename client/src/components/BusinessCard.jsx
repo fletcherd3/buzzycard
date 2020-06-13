@@ -9,13 +9,28 @@ class BusinessCard extends React.Component {
     super(props)
     const params = QueryString.parse(this.props.location.search)
     this.state = {
-      CardID: parseInt(params.cardId)
+      CardID: parseInt(params.cardId),
+      users: []
     }
     console.log(this.state.CardID)
     if (isNaN(this.state.CardID)) {
       this.props.history.push('/')
     }
   }
+
+componentDidMount() {
+    this.fetchUsers();
+  };
+
+fetchUsers() {
+    axios.get('/users/123')
+        .then((response) => {
+        const { users } = response.data;
+        console.log(users)
+        this.setState({ users: [...this.state.users, ...users] })
+        })
+        .catch(() => alert('Error fetching new users'));
+};
 
 
 
