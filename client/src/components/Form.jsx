@@ -3,22 +3,31 @@ import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
 
 class Form extends Component {
-  state = {
-    name: '',
-    cardID: null,
-    bio: '',
-    snapchat: '',
-    facebook: '',
-    tikTok: '',
-    email: ''
-  };
+  constructor(props) {
+    super(props)
+    const params = QueryString.parse(this.props.location.search)
+    this.state = {
+      id: parseInt(params.id),
+      users: [],
+      name: '',
+      cardID: null,
+      bio: '',
+      snapchat: '',
+      facebook: '',
+      tikTok: '',
+      email: ''
+    }
+    // if (isNaN(this.state.CardID)) {
+    //   this.props.history.push('/')
+    // }
+  }
 
   componentDidMount() {
     this.fetchUsers();
   };
 
   fetchUsers() {
-      axios.get('/test/123')
+      axios.get(`/users/${this.state.id}`)
           .then((response) => {
           const { users } = response.data;
           console.log(users)

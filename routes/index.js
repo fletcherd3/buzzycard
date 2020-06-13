@@ -44,14 +44,9 @@ router.post('/add', async (req, res) => {
     }
 });
 
-
-
-
 router.get('/users', async (req, res) => {
-
     try {
         const users = await User.find({});
-
         return res.json({
             users
         });
@@ -63,11 +58,9 @@ router.get('/users', async (req, res) => {
        
 });
 
-router.get('/test/:id', async (req, res) => {
-
+router.get('/users/:id', async (req, res) => {
     try {
-        const user = await User.findById("5ee3543f1f4cba00171eb0a7");
-        console.log(res)
+        const user = await User.findById(req.params.id);
         return res.json({
             user
         });
