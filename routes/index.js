@@ -60,6 +60,7 @@ router.get('/users', async (req, res) => {
 
 router.get('/users/:id', async (req, res) => {
     try {
+        console.log(req.params.id)
         const user = await User.findById(req.params.id);
         return res.json({
             user
