@@ -66,7 +66,7 @@ router.get('/users', async (req, res) => {
 router.get('/users/:id', async (req, res) => {
 
     try {
-        const user = await User.findOne( {"_id.$oid": new ObjectID("5ee3543f1f4cba00171eb0a7")})
+        const user = await User.find({_id:new ObjectId("5ee3543f1f4cba00171eb0a7")})
         console.log(res)
         return res.json({
             user
