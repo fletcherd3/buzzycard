@@ -56,7 +56,8 @@ fetchUsers() {
         >
             {/* <img src='../assets/logo1.png' style={{width: '85%', maxWidth: 400}} /> */}
             <p style={{textAlign: "center"}}>
-                  CardID: {this.state.CardID}
+                  CardID: {this.state.CardID} <br/>
+                  Name: {this.state.users[0].name}
             </p>
         </Grid>
         <Grid 
