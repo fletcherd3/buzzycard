@@ -33,9 +33,9 @@ class BusinessCard extends Component {
   fetchUsers() {
       axios.get(`/users/${this.state.id}`)
           .then((response) => {
-            const { user_data } = response;
+            const { user } = response;
             console.log(user_data)
-            this.setState({ user: [...this.state.user, ...user_data] })
+            this.setState({ user: [...this.state.user, ...user] })
             console.log(this.state.user)
             this.setState({recResult: true})
           })
