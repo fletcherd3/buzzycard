@@ -5,7 +5,6 @@ import axios from 'axios';
 class Form extends Component {
     constructor(props) {
         super(props)
-        const params = QueryString.parse(this.props.location.search)
         this.state = {
             name: '',
             cardID: this.props.location.state.id,
