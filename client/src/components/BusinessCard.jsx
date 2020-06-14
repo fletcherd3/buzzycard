@@ -35,7 +35,7 @@ class BusinessCard extends Component {
           .then((response) => {
             const { user_data } = response;
             console.log(user_data)
-            this.setState({ users: [...this.state.users, ...users] })
+            this.setState({ user: [...this.state.user, ...user_data] })
             console.log(this.state.user)
             this.setState({recResult: true})
           })
