@@ -10,6 +10,7 @@ class BusinessCard extends Component {
     this.state = {
       id: params.id,
       user: null,
+      recResult: false,
       newUser: false,
 
       name: '',
@@ -32,12 +33,16 @@ class BusinessCard extends Component {
   fetchUsers() {
       axios.get(`/users/${this.state.id}`)
           .then((response) => {
-          const { user_data } = response.data;
-          console.log(user_data)
-          this.setState({ users: user_data })
-          console.log(this.state.user)
+            this.setState({recResult: true})
+            const { user_data } = response.data;
+            console.log(user_data)
+            this.setState({ users: user_data })
+            console.log(this.state.user)
           })
-          .catch(() => this.setState({newUser: true}));
+          .catch(() => {
+            this.setState({newUser: true})
+            // this.props.history.push('/form')
+          });
   };
 
   handleChange = e => {
@@ -67,70 +72,70 @@ class BusinessCard extends Component {
   render() {
     return (
       <div>
-        {this.state.newUser ? 
-      
-        <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
-          <h2>Tell us about yourself</h2>
-          <TextField
-            id="standard-dense"
-            value={this.state.name}
-            label="Name"
-            name="name"
-            onChange={this.handleChange}
-          />
+        {this.state.recResult ? 
+          <div>Name: {this.state.user.name}</div>
+            // <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
+            //   <h2>Tell us about yourself</h2>
+            //   <TextField
+            //     id="standard-dense"
+            //     value={this.state.name}
+            //     label="Name"
+            //     name="name"
+            //     onChange={this.handleChange}
+            //   />
 
-          <TextField
-            name="bio"
-            value={this.state.bio}
-            id="standard-dense"
-            onChange={this.handleChange}
-            label="Bio"
-          />
+            //   <TextField
+            //     name="bio"
+            //     value={this.state.bio}
+            //     id="standard-dense"
+            //     onChange={this.handleChange}
+            //     label="Bio"
+            //   />
 
-          <TextField
-            name="snapchat"
-            value={this.state.snapchat}
-            id="standard-dense"
-            onChange={this.handleChange}
-            label="Snapchat"
-          />
+            //   <TextField
+            //     name="snapchat"
+            //     value={this.state.snapchat}
+            //     id="standard-dense"
+            //     onChange={this.handleChange}
+            //     label="Snapchat"
+            //   />
 
-          <TextField
-            name="facebook"
-            value={this.state.facebook}
-            id="standard-dense"
-            onChange={this.handleChange}
-            label="Facebook"
-          />
+            //   <TextField
+            //     name="facebook"
+            //     value={this.state.facebook}
+            //     id="standard-dense"
+            //     onChange={this.handleChange}
+            //     label="Facebook"
+            //   />
 
-          <TextField
-            name="tikTok"
-            value={this.state.tikTok}
-            id="standard-dense"
-            onChange={this.handleChange}
-            label="TikTok"
-          />
+            //   <TextField
+            //     name="tikTok"
+            //     value={this.state.tikTok}
+            //     id="standard-dense"
+            //     onChange={this.handleChange}
+            //     label="TikTok"
+            //   />
 
-          <TextField
-            name="email"
-            value={this.state.email}
-            id="standard-dense"
-            onChange={this.handleChange}
-            label="Email"
-          />
+            //   <TextField
+            //     name="email"
+            //     value={this.state.email}
+            //     id="standard-dense"
+            //     onChange={this.handleChange}
+            //     label="Email"
+            //   />
 
-          <TextField
-            id="standard-dense"
-            value={this.state.cardID}
-            label="Card ID"
-            name="cardID"
-            onChange={this.handleChange}
-          />
+            //   <TextField
+            //     id="standard-dense"
+            //     value={this.state.cardID}
+            //     label="Card ID"
+            //     name="cardID"
+            //     onChange={this.handleChange}
+            //   />
 
-          <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
+            //   <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
 
-        </form>
-        : <div> Welcome {this.state.user.name}</div>}
+            // </form>
+        : null}
       </div>
     );
   }
