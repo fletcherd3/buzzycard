@@ -9,7 +9,7 @@ class BusinessCard extends Component {
     const params = QueryString.parse(this.props.location.search)
     this.state = {
       id: params.id,
-      user: []],
+      user: [],
       recResult: false,
       newUser: false,
 
