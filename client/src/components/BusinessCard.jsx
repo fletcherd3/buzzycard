@@ -9,7 +9,7 @@ class BusinessCard extends Component {
     const params = QueryString.parse(this.props.location.search)
     this.state = {
       id: params.id,
-      user: null,
+      user: []],
       recResult: false,
       newUser: false,
 
@@ -35,7 +35,7 @@ class BusinessCard extends Component {
           .then((response) => {
             const { user_data } = response;
             console.log(user_data)
-            this.setState({ users: JSON.parse(user_data) })
+            this.setState({ users: [...this.state.users, ...users] })
             console.log(this.state.user)
             this.setState({recResult: true})
           })
