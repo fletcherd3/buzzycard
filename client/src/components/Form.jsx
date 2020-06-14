@@ -3,15 +3,20 @@ import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
 
 class Form extends Component {
-  state = {
-    name: '',
-    cardID: null,
-    bio: '',
-    snapchat: '',
-    facebook: '',
-    tikTok: '',
-    email: ''
-  };
+    constructor(props) {
+        super(props)
+        const params = QueryString.parse(this.props.location.search)
+        this.state = {
+            name: '',
+            cardID: this.props.location.state.id,
+            bio: '',
+            snapchat: '',
+            facebook: '',
+            tikTok: '',
+            email: ''
+        }
+        console.log(this.props.location.state.id);
+      }
 
   handleChange = e => {
     const name = e.target.name;
