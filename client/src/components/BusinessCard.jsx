@@ -33,15 +33,15 @@ class BusinessCard extends Component {
   fetchUsers() {
       axios.get(`/users/${this.state.id}`)
           .then((response) => {
-            this.setState({recResult: true})
             const { user_data } = response.data;
             console.log(user_data)
             this.setState({ users: user_data })
             console.log(this.state.user)
+            this.setState({recResult: true})
           })
           .catch(() => {
             this.setState({newUser: true})
-            // this.props.history.push('/form')
+            this.props.history.push('/form')
           });
   };
 
