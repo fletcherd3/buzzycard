@@ -93,14 +93,6 @@ class Form extends Component {
           label="Email"
         />
 
-        <TextField
-          id="standard-dense"
-          value={this.state.cardID}
-          label="Card ID"
-          name="cardID"
-          onChange={this.handleChange}
-        />
-
         <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
 
       </form>
