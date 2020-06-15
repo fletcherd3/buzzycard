@@ -76,7 +76,7 @@ class BusinessCard extends Component {
   render() {
     return (
       <div>
-        {this.state.recResult ? 
+        {this.state.user != null ? 
           <div>Name: {this.state.user.name}</div>
             // <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
             //   <h2>Tell us about yourself</h2>
