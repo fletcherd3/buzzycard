@@ -18,3 +18,27 @@
   margin-top: 20px;
   width: 100px;
 }
+.pageButton {
+  height: 75px;
+  width: 430px !important;
+  max-width: 98% !important;
+  border-radius: 100px !important;
+  font-size: 17px !important;
+  
+}
+
+.icon {
+  width: 55px;
+  fill: white;
+  margin-right: 20px;
+  margin-left: -22px;
+  padding-left: 10px;
+}
+
+.display {
+  text-align: center;
+}
+
+.instagram {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 70%,#bc1888 100%);
+}

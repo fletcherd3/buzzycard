@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { TextField, Button } from '@material-ui/core';
 import axios from 'axios';
 import QueryString from 'query-string';
+import FacebookButton from './buttons/FacebookButton'
+import InstagramButton from './buttons/InstagramButton';
 
 class BusinessCard extends Component {
   constructor(props) {
@@ -21,9 +22,6 @@ class BusinessCard extends Component {
       tikTok: '',
       email: ''
     }
-    // if (isNaN(this.state.CardID)) {
-    //   this.props.history.push('/')
-    // }
   }
 
   componentDidMount() {
@@ -77,69 +75,14 @@ class BusinessCard extends Component {
     return (
       <div>
         {this.state.user != null ? 
-          <div>Name: {this.state.user.name}</div>
-            // <form className="form noValidate" autoComplete="off" onSubmit={this.submit}>
-            //   <h2>Tell us about yourself</h2>
-            //   <TextField
-            //     id="standard-dense"
-            //     value={this.state.name}
-            //     label="Name"
-            //     name="name"
-            //     onChange={this.handleChange}
-            //   />
+          <div>
+            <div>Name: {this.state.user.name}</div>
 
-            //   <TextField
-            //     name="bio"
-            //     value={this.state.bio}
-            //     id="standard-dense"
-            //     onChange={this.handleChange}
-            //     label="Bio"
-            //   />
-
-            //   <TextField
-            //     name="snapchat"
-            //     value={this.state.snapchat}
-            //     id="standard-dense"
-            //     onChange={this.handleChange}
-            //     label="Snapchat"
-            //   />
-
-            //   <TextField
-            //     name="facebook"
-            //     value={this.state.facebook}
-            //     id="standard-dense"
-            //     onChange={this.handleChange}
-            //     label="Facebook"
-            //   />
-
-            //   <TextField
-            //     name="tikTok"
-            //     value={this.state.tikTok}
-            //     id="standard-dense"
-            //     onChange={this.handleChange}
-            //     label="TikTok"
-            //   />
-
-            //   <TextField
-            //     name="email"
-            //     value={this.state.email}
-            //     id="standard-dense"
-            //     onChange={this.handleChange}
-            //     label="Email"
-            //   />
-
-            //   <TextField
-            //     id="standard-dense"
-            //     value={this.state.cardID}
-            //     label="Card ID"
-            //     name="cardID"
-            //     onChange={this.handleChange}
-            //   />
-
-            //   <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>
-
-            // </form>
-        : null}
+          </div>
+        : <div>
+          <FacebookButton />
+          <InstagramButton />
+          </div>}
       </div>
     );
   }
