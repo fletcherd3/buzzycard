@@ -18,13 +18,14 @@
   margin-top: 20px;
   width: 100px;
 }
+
 .pageButton {
   height: 75px;
   width: 430px !important;
   max-width: 98% !important;
   border-radius: 100px !important;
   font-size: 17px !important;
-  
+  padding-top: 20px;
 }
 
 .icon {
