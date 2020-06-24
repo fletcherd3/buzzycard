@@ -13,7 +13,6 @@ class Form extends Component {
             tikTok: '',
             email: ''
         }
-        console.log(this.props.location.state.id);
       }
 
   handleChange = e => {
