@@ -7,11 +7,14 @@ import OpenApp from "react-open-app";
 
 class InstagramButton extends React.Component {
   render() {
+    if (this.props.user_name === "") {
+      return null
+    }
     return (
         <div className='display'>
-          <OpenApp href={`https://www.instagram.com/${this.props.user_name}/`}>
+          <OpenApp href={`https://www.instagram.com/${this.props.user_name}`}>
             <Button variant="contained" size="large" color="primary" className='pageButton instagram'>
-                <InstagramLogo className='icon'/>
+                <InstagramLogo className='white_icon'/>
                 Instagram
             </Button>
           </OpenApp>

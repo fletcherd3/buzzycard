@@ -3,6 +3,9 @@ import axios from 'axios';
 import QueryString from 'query-string';
 import FacebookButton from './FacebookButton'
 import InstagramButton from './InstagramButton';
+import SnapchatButton from './SnapchatButton';
+import GithubButton from './GithubButton';
+import CustomSiteButton from './CustomSiteButton';
 
 class BusinessCard extends Component {
   constructor(props) {
@@ -15,12 +18,15 @@ class BusinessCard extends Component {
       newUser: false,
 
       name: '',
-      cardID: null,
       bio: '',
       snapchat: '',
       facebook: '',
       tikTok: '',
-      email: ''
+      email: '',
+      instagram: '',
+      github: '',
+      site_link: '',
+      site_name: ''
     }
   }
 
@@ -39,11 +45,11 @@ class BusinessCard extends Component {
           })
           .catch(() => {
             this.setState({newUser: true})
-            // this.props.history.push({
-            //   pathname : '/Form',
-            //   state :{id: this.state.id}
-            //   } 
-            // );
+            this.props.history.push({
+              pathname : '/Form',
+              state :{id: this.state.id}
+              } 
+            );
           });
   };
 
@@ -55,18 +61,21 @@ class BusinessCard extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, cardID, bio, snapchat, facebook, tikTok, email } = this.state;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name} = this.state;
     axios({
       url: '/add',
       method: 'POST',
       data: {
         name,
-        cardID,
         bio,
         snapchat,
         facebook,
         tikTok,
-        email
+        email,
+        instagram,
+        github,
+        site_link,
+        site_name
       }
     })
       .catch(() => alert('Failed uploading data'))
@@ -76,13 +85,14 @@ class BusinessCard extends Component {
       <div>
         {this.state.user != null ? 
           <div>
-            <div>Name: {this.state.user.name}</div>
-
+            Name: {this.state.user.name}
+            <FacebookButton user_name={this.state.facebook}/>
+            <InstagramButton user_name={this.state.instagram}/>
+            <SnapchatButton user_name={this.state.snapchat}/>
+            <GithubButton user_name={this.state.github}/>
+            <CustomSiteButton name={this.state.site_name} url={this.state.site_link} />
           </div>
-        : <div>
-          <FacebookButton user_name={this.state.facebook}/>
-          <InstagramButton user_name={this.state.snapchat}/>
-          </div>}
+        : null}
       </div>
     );
   }

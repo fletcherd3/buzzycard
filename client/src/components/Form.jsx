@@ -7,7 +7,6 @@ class Form extends Component {
         super(props)
         this.state = {
             name: '',
-            cardID: this.props.location.state.id,
             bio: '',
             snapchat: '',
             facebook: '',
@@ -25,18 +24,21 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, cardID, bio, snapchat, facebook, tikTok, email } = this.state;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name } = this.state;
     axios({
       url: '/add',
       method: 'POST',
       data: {
         name,
-        cardID,
         bio,
         snapchat,
         facebook,
         tikTok,
-        email
+        email,
+        instagram,
+        github, 
+        site_link,
+        site_name
       }
     })
       .catch(() => alert('Failed uploading data'))
@@ -91,6 +93,38 @@ class Form extends Component {
           id="standard-dense"
           onChange={this.handleChange}
           label="Email"
+        />
+
+        <TextField
+          name="instagram"
+          value={this.state.instagram}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="Instagram"
+        />
+
+        <TextField
+          name="github"
+          value={this.state.github}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="Github"
+        />
+
+        <TextField
+          name="site_name"
+          value={this.state.site_name}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="Site Name"
+        />
+
+        <TextField
+          name="site_link"
+          value={this.state.site_link}
+          id="standard-dense"
+          onChange={this.handleChange}
+          label="Site URL"
         />
 
         <Button variant="contained" color="primary" onClick={this.submit}> Submit </Button>

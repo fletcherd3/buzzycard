@@ -19,11 +19,14 @@ class FacebookButton extends React.Component {
   }
 
   render() {
+    if (this.props.user_name === "") {
+      return null
+    }
     return (
         <div className='display'>
-          <OpenApp href={`https://www.facebook.com/${this.state.id}/`}>
+          <OpenApp href={`https://www.facebook.com/${this.state.id}`}>
             <Button variant="contained" size="large" color="primary" className='pageButton'>
-                <FacebookLogo className='icon'/>
+                <FacebookLogo className='white_icon'/>
                 Facebook
             </Button>
           </OpenApp>
