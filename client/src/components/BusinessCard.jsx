@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import QueryString from 'query-string';
-import FacebookButton from './buttons/FacebookButton'
-import InstagramButton from './buttons/InstagramButton';
+import FacebookButton from './FacebookButton'
+import InstagramButton from './InstagramButton';
 
 class BusinessCard extends Component {
   constructor(props) {

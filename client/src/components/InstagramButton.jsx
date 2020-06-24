@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button  } from '@material-ui/core';
-import "../../App.css";
-import {ReactComponent as InstagramLogo} from '../../assets/icons/instagram.svg';
+import "../App.css";
+import {ReactComponent as InstagramLogo} from '../assets/icons/instagram.svg';
 
 
 class InstagramButton extends React.Component {

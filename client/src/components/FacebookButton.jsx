@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, TextField, Button  } from '@material-ui/core';
-import "../../App.css";
+import "../App.css";
 import {Linking} from 'react-native';
-import {ReactComponent as FacebookLogo} from '../../assets/icons/facebook.svg';
+import {ReactComponent as FacebookLogo} from '../assets/icons/facebook.svg';
 
 
 
