@@ -12,7 +12,7 @@ class FacebookButton extends React.Component {
   render() {
     return (
         <div className='display'>
-          <OpenApp href="https://www.facebook.com/Fletcherd3/">
+          <OpenApp href="https://www.facebook.com/100003950688284/">
             <Button variant="contained" size="large" color="primary" className='pageButton'>
                 <FacebookLogo className='icon'/>
                 Facebook
