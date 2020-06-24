@@ -86,11 +86,11 @@ class BusinessCard extends Component {
         {this.state.user != null ? 
           <div>
             Name: {this.state.user.name}
-            <FacebookButton user_name={this.state.facebook}/>
-            <InstagramButton user_name={this.state.instagram}/>
-            <SnapchatButton user_name={this.state.snapchat}/>
-            <GithubButton user_name={this.state.github}/>
-            <CustomSiteButton name={this.state.site_name} url={this.state.site_link} />
+            <FacebookButton user_name={this.state.user.facebook}/>
+            <InstagramButton user_name={this.state.user.instagram}/>
+            <SnapchatButton user_name={this.state.user.snapchat}/>
+            <GithubButton user_name={this.state.user.github}/>
+            <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
           </div>
         : null}
       </div>
