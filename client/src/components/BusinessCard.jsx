@@ -80,8 +80,8 @@ class BusinessCard extends Component {
 
           </div>
         : <div>
-          <FacebookButton />
-          <InstagramButton />
+          <FacebookButton user_name={this.state.facebook}/>
+          <InstagramButton user_name={this.state.snapchat}/>
           </div>}
       </div>
     );
