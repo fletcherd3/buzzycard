@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Logo from '../assets/images/BuzzyBee_S.png';
 import QueryString from 'query-string';
 import FacebookButton from './FacebookButton'
 import InstagramButton from './InstagramButton';
 import SnapchatButton from './SnapchatButton';
 import GithubButton from './GithubButton';
 import CustomSiteButton from './CustomSiteButton';
+import "../App.css";
 
 class BusinessCard extends Component {
   constructor(props) {
@@ -45,11 +47,11 @@ class BusinessCard extends Component {
           })
           .catch(() => {
             this.setState({newUser: true})
-            this.props.history.push({
-              pathname : '/Form',
-              state :{id: this.state.id}
-              } 
-            );
+            // this.props.history.push({
+            //   pathname : '/Form',
+            //   state :{id: this.state.id}
+            //   } 
+            // );
           });
   };
 
@@ -84,8 +86,15 @@ class BusinessCard extends Component {
     return (
       <div>
         {this.state.user != null ? 
-          <div>
-            Name: {this.state.user.name}
+          <div className="display">
+            <div className='logoText'>
+              BuzzyCard is Developed and Designed<br/>by <a className="logolink" href="https://github.com/fletcherd3/" target="_blank">Fletcher Dick</a>
+            </div>
+            <br/>
+            <img src={Logo} className="Logo" alt="Buzzy Card Logo"/>
+
+            <h1 className="h1">{this.state.user.name}</h1>
+            
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>
             <SnapchatButton user_name={this.state.user.snapchat}/>

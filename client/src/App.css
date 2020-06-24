@@ -72,3 +72,22 @@
   background-color: #646464 !important;
   color: white !important;
 }
+
+.Logo {
+  width: auto;
+  height: 80px;
+}
+
+.logoText {
+  color: white;
+}
+
+.logolink {
+  color: #D63632;
+  text-decoration: none;
+}
+
+.h1 {
+   color: white;
+   font-size: 40pt;
+}
