@@ -39,11 +39,11 @@ class BusinessCard extends Component {
           })
           .catch(() => {
             this.setState({newUser: true})
-            this.props.history.push({
-              pathname : '/Form',
-              state :{id: this.state.id}
-              } 
-            );
+            // this.props.history.push({
+            //   pathname : '/Form',
+            //   state :{id: this.state.id}
+            //   } 
+            // );
           });
   };
 
