@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button  } from '@material-ui/core';
 import "../App.css";
-import {ReactComponent as SiteLogo} from '../assets/icons/mail.svg';
+import {ReactComponent as SiteLogo} from '../assets/icons/slashdot.svg';
 import OpenApp from "react-open-app";
 
 

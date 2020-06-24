@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Logo from '../assets/images/BuzzyBee_S.png';
+import Logo from '../assets/images/BuzzyBee_Logo.gif';
 import QueryString from 'query-string';
 import FacebookButton from './FacebookButton'
 import InstagramButton from './InstagramButton';
@@ -87,14 +87,9 @@ class BusinessCard extends Component {
       <div>
         {this.state.user != null ? 
           <div className="display">
-            <div className='logoText'>
-              BuzzyCard is Developed and Designed<br/>by <a className="logolink" href="https://github.com/fletcherd3/" target="_blank">Fletcher Dick</a>
-            </div>
-            <br/>
-            <img src={Logo} className="Logo" alt="Buzzy Card Logo"/>
 
             <h1 className="h1">{this.state.user.name}</h1>
-            
+
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>
             <SnapchatButton user_name={this.state.user.snapchat}/>
