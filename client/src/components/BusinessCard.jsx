@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Logo from '../assets/images/BuzzyBee_Logo.gif';
 import QueryString from 'query-string';
 import FacebookButton from './FacebookButton'
 import InstagramButton from './InstagramButton';

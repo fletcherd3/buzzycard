@@ -8,7 +8,6 @@
 
 .form, .users {
   margin: 0px auto;
-  width: 50%;
 }
 
 .form {
@@ -16,14 +15,27 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  align-items: center;
+}
+
+.formCard {
+  width: 430px;
+  max-width: 90% !important;
+  margin: 3%;
+  padding: 20px;
 }
 
 .form > div {
   margin-top: 10px;
 }
+
 .form button {
   margin-top: 20px;
   width: 100px;
+}
+
+.formInput {
+  width: 90%;
 }
 
 .pageButton {
