@@ -57,7 +57,7 @@ class BusinessCard extends Component {
 
   render() {
     // New User
-    if (this.state.user != null && this.state.user.name === null) {
+    if (this.state.user != null && this.state.user.name === undefined) {
       this.props.history.push({
         pathname : '/Form',
         state : {id: this.state.user._id}
@@ -77,6 +77,7 @@ class BusinessCard extends Component {
           <div className="display">
 
             <h1 className="h1">{this.state.user.name}</h1>
+            <h2 className="h2">{this.state.user.bio}</h2>
 
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>
