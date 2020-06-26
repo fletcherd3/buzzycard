@@ -8,6 +8,7 @@ import GithubButton from './GithubButton';
 import CustomSiteButton from './CustomSiteButton';
 import "../App.css";
 import EmailButton from './EmailButton';
+import TikTokButton from './TikTokButton';
 
 class BusinessCard extends Component {
   constructor(props) {
@@ -85,6 +86,7 @@ class BusinessCard extends Component {
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>
             <SnapchatButton user_name={this.state.user.snapchat}/>
+            <TikTokButton user_name={this.state.user.tikTok} />
             <GithubButton user_name={this.state.user.github}/>
             <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
             <EmailButton email={this.state.user.email} />

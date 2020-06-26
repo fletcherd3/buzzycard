@@ -130,13 +130,13 @@ class Form extends Component {
     return (
       <div className="display" style={{ display:'flex', justifyContent:'center' }}>
         {this.state.submitted ? 
-        <div>
+        <Card className="formCard">
           <h2>Submitted</h2>
           <Lottie options={defaultOptions}
             height={100}
             width={100}/>
           <h3>Tap or scan your card to view your profile</h3>
-        </div>
+        </Card>
         : 
           <Card className="formCard">
             <form className="form noValidate" autoComplete="on" onSubmit={this.submit}>
