@@ -18,7 +18,7 @@ class BusinessCard extends Component {
       id: params.id,
       user: null,
       userError: false,
-      dev: true
+      dev: false
     }
   }
 
