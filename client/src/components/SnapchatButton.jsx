@@ -14,7 +14,7 @@ class SnapchatButton extends React.Component {
         <div className='display'>
           <OpenApp 
             href={`https://www.snapchat.com/add/${this.props.user_name}`}
-            android={`snapchat://add/${this.props.user_name}`}
+            android={`intent://add/${this.props.user_name}#Intent;scheme=snapchat;package=com.snapchat.android;end;`}
             ios={`snapchat://add/${this.props.user_name}`}
             style={{textDecoration: "none"}}
           >

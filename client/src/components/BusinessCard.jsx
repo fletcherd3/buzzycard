@@ -18,7 +18,7 @@ class BusinessCard extends Component {
       id: params.id,
       user: null,
       userError: false,
-      dev: false
+      dev: true
     }
   }
 
@@ -91,7 +91,9 @@ class BusinessCard extends Component {
             <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
             <EmailButton email={this.state.user.email} />
           </div>
-        : null}
+        : <div>
+            <TikTokButton user_name="fletcherdick" />
+          </div>}
       </div>
     );
   }
