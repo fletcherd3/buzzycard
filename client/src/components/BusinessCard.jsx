@@ -17,7 +17,7 @@ class BusinessCard extends Component {
       id: params.id,
       user: null,
       userError: false,
-      dev: true
+      dev: false
     }
   }
 
@@ -43,9 +43,8 @@ class BusinessCard extends Component {
     if (this.state.user != null && this.state.user.name === "") {
       this.props.history.push({
         pathname : '/Form',
-        state :{id: this.state.user._id}
-        } 
-      );
+        state : {id: this.state.user._id}
+      });
     }
   };
 

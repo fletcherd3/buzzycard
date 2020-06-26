@@ -50,6 +50,19 @@ router.post('/add', async (req, res) => {
     }
 });
 
+router.post('/update/:id', async (req, res) => {
+    try {
+        console.log(req.body);
+        await User.findByIdAndUpdate(req.params.id, req.body);
+        return res.json({user});
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Internal Server error'
+        });
+    }
+       
+});
+
 router.get('/users', async (req, res) => {
     try {
         const users = await User.find({});
@@ -66,7 +79,6 @@ router.get('/users', async (req, res) => {
 
 router.get('/users/:id', async (req, res) => {
     try {
-        console.log(req.params.id);
         const user = await User.findById(req.params.id);
         return res.json({
             user

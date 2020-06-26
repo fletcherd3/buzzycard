@@ -7,7 +7,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 
-
 class Form extends Component {
     constructor(props) {
         super(props)
@@ -89,7 +88,8 @@ class Form extends Component {
     e.preventDefault();
     const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name } = this.state;
     axios({
-      url: '/add',
+      // url: '/add',
+      url: `/update/${this.props.location.state.id}`,
       method: 'POST',
       data: {
         name,
