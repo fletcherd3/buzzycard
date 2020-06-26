@@ -66,8 +66,7 @@ class BusinessCard extends Component {
     // Could not find user
     if (this.state.userError && !this.state.dev) {
       this.props.history.push({
-        pathname : '/about',
-        state : {id: this.state.user._id}
+        pathname : '/about'
       });
     }
     return (
