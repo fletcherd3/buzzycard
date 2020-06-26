@@ -103,9 +103,12 @@
 .h1 {
    color: white;
    font-size: 40pt;
+   margin-top: 10px;
+   margin-bottom: 0;
 }
 
 .h2 {
   color: white;
   font-size: 20pt;
+  margin-top: 0;
 }

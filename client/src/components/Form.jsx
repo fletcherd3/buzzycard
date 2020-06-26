@@ -70,7 +70,7 @@ class Form extends Component {
     const validName = this.checkName(this.state.name);
     const validEmail = this.checkEmail(this.state.email);
     const validLink = this.checkLink(this.state.site_name, this.state.site_link)
-    if (validName && validEmail && validLink) {
+    if (validName && validEmail && validLink && this.props.location.state.id !== undefined) {
       this.setState({ existingError: false })
     } else {
       this.setState({ existingError: true })
@@ -89,8 +89,8 @@ class Form extends Component {
     const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name } = this.state;
     axios({
       // url: '/add',
-      // url: `/update/${this.props.location.state.id}`,
-      url: `/update/5ef551cd7c213e6263a74125`,
+      url: `/update/${this.props.location.state.id}`,
+      // url: `/update/5ef551cd7c213e6263a74125`,
       method: 'POST',
       data: {
         name,
@@ -104,8 +104,11 @@ class Form extends Component {
         site_link,
         site_name
       }
-    })
-      .catch(() => alert('Failed uploading data'))
+    }).catch(() => alert('Failed uploading data'))
+    this.props.history.push({
+      pathname : `/?id=${this.props.location.state.id}`,
+      state : {id: this.state.user._id}
+    });
   };
   render() {
     const theme = createMuiTheme({

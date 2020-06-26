@@ -17,7 +17,7 @@ class BusinessCard extends Component {
       id: params.id,
       user: null,
       userError: false,
-      dev: false
+      dev: true
     }
   }
 
@@ -77,7 +77,12 @@ class BusinessCard extends Component {
           <div className="display">
 
             <h1 className="h1">{this.state.user.name}</h1>
-            <h2 className="h2">{this.state.user.bio}</h2>
+            
+            <span style={{whiteSpace: "pre-line"}}>
+              <h2 className="h2">
+                {this.state.user.bio}
+              </h2>
+            </span>
 
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>

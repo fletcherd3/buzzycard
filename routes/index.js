@@ -52,9 +52,7 @@ router.post('/add', async (req, res) => {
 
 router.post('/update/:id', async (req, res) => {
     try {
-        console.log(req.body);
         await User.findByIdAndUpdate(req.params.id, req.body);
-        return res.json({user});
     } catch (error) {
         return res.status(500).json({
             message: 'Internal Server error'
