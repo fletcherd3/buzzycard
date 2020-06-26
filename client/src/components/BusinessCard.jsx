@@ -17,7 +17,7 @@ class BusinessCard extends Component {
       id: params.id,
       user: null,
       userError: false,
-      dev: true
+      dev: false
     }
   }
 
@@ -56,20 +56,19 @@ class BusinessCard extends Component {
   };
 
   render() {
-    // New User
+    // New UserAboutPage
     if (this.state.user != null && this.state.user.name === undefined) {
       this.props.history.push({
-        pathname : '/Form',
+        pathname : '/form',
         state : {id: this.state.user._id}
       });
     }
     // Could not find user
     if (this.state.userError && !this.state.dev) {
-      return(
-        <div className="display">
-          <h1 className="h1">Oops! We cant find that specific user <span role="img" aria-label="detective">🕵️</span>‍</h1>
-        </div>
-      )
+      this.props.history.push({
+        pathname : '/about',
+        state : {id: this.state.user._id}
+      });
     }
     return (
       <div>
