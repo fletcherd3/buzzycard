@@ -106,8 +106,7 @@ class Form extends Component {
       }
     }).catch(() => alert('Failed uploading data'))
     this.props.history.push({
-      pathname : `/?id=${this.props.location.state.id}`,
-      state : {id: this.state.user._id}
+      pathname : `/?id=${this.props.location.state.id}`
     });
   };
   render() {
