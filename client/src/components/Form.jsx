@@ -89,7 +89,8 @@ class Form extends Component {
     const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name } = this.state;
     axios({
       // url: '/add',
-      url: `/update/${this.props.location.state.id}`,
+      // url: `/update/${this.props.location.state.id}`,
+      url: `/update/5ef551cd7c213e6263a74125`,
       method: 'POST',
       data: {
         name,

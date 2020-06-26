@@ -40,12 +40,6 @@ class BusinessCard extends Component {
       }})
     }
     this.fetchUser();
-    if (this.state.user != null && this.state.user.name === "") {
-      this.props.history.push({
-        pathname : '/Form',
-        state : {id: this.state.user._id}
-      });
-    }
   };
 
   fetchUser() {
@@ -62,6 +56,14 @@ class BusinessCard extends Component {
   };
 
   render() {
+    // New User
+    if (this.state.user != null && this.state.user.name === null) {
+      this.props.history.push({
+        pathname : '/Form',
+        state : {id: this.state.user._id}
+      });
+    }
+    // Could not find user
     if (this.state.userError && !this.state.dev) {
       return(
         <div className="display">
