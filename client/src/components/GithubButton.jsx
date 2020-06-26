@@ -16,6 +16,7 @@ class GithubButton extends React.Component {
             href={`https://github.com/${this.props.user_name}`}
             android={`https://github.com/${this.props.user_name}`}
             ios={`https://github.com/${this.props.user_name}`}
+            style={{textDecoration: "none"}}
           >
             <Button variant="contained" size="large" className='pageButton github'>
                 <GithubLogo className='white_icon'/>

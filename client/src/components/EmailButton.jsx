@@ -16,6 +16,7 @@ class EmailButton extends React.Component {
             href={`mailto:${this.props.email}`}
             ios={`mailto:${this.props.email}`}
             android={`mailto:${this.props.email}`}
+            style={{textDecoration: "none"}}
           >
             <Button variant="contained" size="large" className='pageButton mail'>
                 <MailLogo className='white_icon'/>

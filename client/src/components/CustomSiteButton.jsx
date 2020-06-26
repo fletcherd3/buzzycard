@@ -16,6 +16,7 @@ class CustomSiteButton extends React.Component {
             href={this.props.url}
             ios={this.props.url}
             android={this.props.url}
+            style={{textDecoration: "none"}}
           >
             <Button variant="contained" size="large" className='pageButton site'>
                 <SiteLogo className='white_icon'/>

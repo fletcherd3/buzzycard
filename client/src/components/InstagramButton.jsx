@@ -12,7 +12,10 @@ class InstagramButton extends React.Component {
     }
     return (
         <div className='display'>
-          <OpenApp href={`https://www.instagram.com/${this.props.user_name}`}>
+          <OpenApp 
+            href={`https://www.instagram.com/${this.props.user_name}`}
+            style={{textDecoration: "none"}}
+          >
             <Button variant="contained" size="large" color="primary" className='pageButton instagram'>
                 <InstagramLogo className='white_icon'/>
                 Instagram

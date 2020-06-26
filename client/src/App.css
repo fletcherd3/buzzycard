@@ -41,10 +41,10 @@
 .pageButton {
   height: 75px;
   width: 430px !important;
-  max-width: 98% !important;
+  max-width: 95% !important;
   border-radius: 100px !important;
   font-size: 17px !important;
-  margin: 20px !important;
+  margin-bottom: 30px !important;
 }
 
 .white_icon {

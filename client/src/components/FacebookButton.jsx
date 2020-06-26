@@ -24,7 +24,10 @@ class FacebookButton extends React.Component {
     }
     return (
         <div className='display'>
-          <OpenApp href={`https://www.facebook.com/${this.state.id}`}>
+          <OpenApp 
+            href={`https://www.facebook.com/${this.state.id}`}
+            style={{textDecoration: "none"}}
+          >
             <Button variant="contained" size="large" color="primary" className='pageButton'>
                 <FacebookLogo className='white_icon'/>
                 Facebook

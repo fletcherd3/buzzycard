@@ -16,9 +16,10 @@ class SnapchatButton extends React.Component {
             href={`https://www.snapchat.com/add/${this.props.user_name}`}
             android={`snapchat://add/${this.props.user_name}`}
             ios={`snapchat://add/${this.props.user_name}`}
+            style={{textDecoration: "none"}}
           >
             <Button variant="contained" size="large" className='pageButton snapchat'>
-                <SnapchatLogo className='black_icon'/>
+                <SnapchatLogo className='white_icon'/>
                 Snapchat
             </Button>
           </OpenApp>
