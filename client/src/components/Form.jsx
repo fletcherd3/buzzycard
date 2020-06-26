@@ -135,6 +135,7 @@ class Form extends Component {
           <Lottie options={defaultOptions}
             height={100}
             width={100}/>
+          <h3>Tap or scan your card to view your profile</h3>
         </div>
         : 
           <Card className="formCard">
