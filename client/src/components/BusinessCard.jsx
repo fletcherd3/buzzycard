@@ -91,9 +91,7 @@ class BusinessCard extends Component {
             <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
             <EmailButton email={this.state.user.email} />
           </div>
-        : <div>
-            <TikTokButton user_name="fletcherdick" />
-          </div>}
+        : null}
       </div>
     );
   }

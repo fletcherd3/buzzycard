@@ -3,8 +3,16 @@ import "../App.css";
 import Card from '@material-ui/core/Card';
 import Lottie from 'react-lottie';
 import animationData from '../assets/animations/tap.json'
+import  { Redirect } from 'react-router-dom'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 
 class AboutPage extends React.Component {
+
+  redirect() {
+    return <Redirect to="/dashboard"/>
+  }
+
   render() {
 
     const defaultOptions = {
@@ -12,6 +20,17 @@ class AboutPage extends React.Component {
       autoplay: true, 
       animationData: animationData
     };
+
+    const theme = createMuiTheme({
+      palette: {
+        secondary: {
+          main: '#D63632'
+        }
+      },
+      typography: {
+        useNextVariants: true,
+      },  
+    });
 
     return (
         <div className='display' style={{ display:'flex', justifyContent:'center' }}>
@@ -28,6 +47,9 @@ class AboutPage extends React.Component {
             <Lottie options={defaultOptions}
               height={200}
               width={200}/>
+            <MuiThemeProvider theme={theme}>
+              <Button variant="contained" className="display" color="secondary" onClick={() => this.props.history.push("/?id=5ef431ea5be3030017e37864")}> See Fletchers Profile </Button>
+            </MuiThemeProvider>
           </Card>
         </div>
     )
