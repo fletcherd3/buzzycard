@@ -48,7 +48,7 @@ class AboutPage extends React.Component {
               height={200}
               width={200}/>
             <MuiThemeProvider theme={theme}>
-              <Button variant="contained" className="display" color="secondary" onClick={() => this.props.history.push("/?id=5ef431ea5be3030017e37864")}> See Fletchers Profile </Button>
+              <Button variant="contained" className="display" color="secondary" onClick={() => this.props.history.push("/?id=5ef431ea5be3030017e37864")}> See my profile </Button>
             </MuiThemeProvider>
           </Card>
         </div>
