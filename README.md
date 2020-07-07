@@ -2,7 +2,7 @@
 ![](client/src/assets/images/BuzzyBee_Logo.gif)
 
 # BuzzyCard
-**A side project to take on Full-Stack development**
+**A side project to take on Full-Stack development.**
 
 
 ## Deployed Web-App links
