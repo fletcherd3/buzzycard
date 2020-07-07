@@ -19,6 +19,7 @@ It's easy as! Just tap the card on a supported phone, there's no extra app neede
 
 
 ## Supported Phones (Capable of opening links through NFC)
+**Note:** *All phones can use a BuzzyCard by scanning the QR code on the card.*
 
 ### Apple (iPhone)
  - iPhone 11 Pro Max
