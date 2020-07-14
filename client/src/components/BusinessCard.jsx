@@ -30,7 +30,7 @@ class BusinessCard extends Component {
         "bio":"👨‍💻 Studying Software Engineering at UC\n📍 Christchurch, NZ\n👶 20 yo",
         "snapchat":"fletcher.dick",
         "facebook":"fletcherd3",
-        "tikTok":"fletcher.dick",
+        "tikTok":"fletcherdick",
         "email":"fletcherjdick@gmail.com",
         "instagram":"fletcher_dick",
         "github":"fletcherd3",
@@ -65,7 +65,7 @@ class BusinessCard extends Component {
       });
     }
     // Could not find user
-    if (this.state.userError && !this.state.dev) {
+    if (this.state.id === undefined || (this.state.userError && !this.state.dev)) {
       this.props.history.push({
         pathname : '/about'
       });

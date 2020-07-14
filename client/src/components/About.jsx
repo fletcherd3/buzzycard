@@ -36,7 +36,7 @@ class AboutPage extends React.Component {
         <div className='display' style={{ display:'flex', justifyContent:'center' }}>
           <Card className="formCard">
             <h2>About BuzzyCard</h2>
-            BuzzyCard is "SmartCard" business card alternative created as a project to show my
+            BuzzyCard is "Smart Card", a business card alternative created as a project to show my
             skills and interests in building a full-stack web application. <br/>
             The application is a MERN stack (thats MongoDB, Express, React, and Node.js)
             that uses a cards NFC (or QR code) to open a customised profile page for the user.
