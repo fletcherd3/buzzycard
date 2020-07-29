@@ -10,7 +10,7 @@ router.post('/add', async (req, res) => {
             statusCode: 403
         });
     }
-    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name} = req.body;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive} = req.body;
 
     const newUser = new User({
         name,
@@ -23,6 +23,7 @@ router.post('/add', async (req, res) => {
         github, 
         site_link,
         site_name,
+        googleDrive,
         dateCreated: Date.now()
     });
     try {
@@ -39,7 +40,8 @@ router.post('/add', async (req, res) => {
             instagram,
             github, 
             site_link,
-            site_name
+            site_name,
+            googleDrive
         });
     } catch (error) {
         console.log('Error: ', error);

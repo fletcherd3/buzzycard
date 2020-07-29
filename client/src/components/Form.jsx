@@ -28,7 +28,8 @@ class Form extends Component {
             site_link: '',
             site_linkErrorText: '',
             existingError: true,
-            submitted: false
+            submitted: false,
+            googleDrive: ''
         }
       }
 
@@ -89,7 +90,7 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name } = this.state;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive } = this.state;
     axios({
       // url: '/add',
       url: `/update/${this.props.location.state.id}`,
@@ -104,7 +105,8 @@ class Form extends Component {
         instagram,
         github, 
         site_link,
-        site_name
+        site_name,
+        googleDrive
       }
     })
     this.setState({ submitted: true });
@@ -236,6 +238,17 @@ class Form extends Component {
                   label="🔗 Site URL"
                   error={this.state.site_linkErrorText !== ""}
                   helperText={this.state.site_linkErrorText}
+                />
+
+                <h3>Add a Google Drive link to youre CV</h3>
+                URL's should start with https://
+
+                <TextField
+                  name="googleDrive"
+                  value={this.state.googleDrive}
+                  className="formInput"
+                  onChange={this.handleChange}
+                  label="📄 CV"
                 />
 
                 <Button disabled={this.state.existingError} variant="contained" className="display" color="secondary" onClick={this.submit}> Submit </Button>

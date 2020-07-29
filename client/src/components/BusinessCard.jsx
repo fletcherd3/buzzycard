@@ -9,6 +9,7 @@ import CustomSiteButton from './CustomSiteButton';
 import "../App.css";
 import EmailButton from './EmailButton';
 import TikTokButton from './TikTokButton';
+import GoogleDriveButton from './GoogleDriveButton';
 
 class BusinessCard extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class BusinessCard extends Component {
         "github":"fletcherd3",
         "site_link":"https://buzzycard.herokuapp.com/about",
         "site_name":"More about BuzzyCard",
+        "googleDrive": "https://drive.google.com/file/d/1NdNbbqZVTVeapiALfIDcFvOY0rprdotP/view?usp=sharing",
         "dateCreated":"2020-06-25T05:11:06.742Z",
         "__v":0
       }})
@@ -82,14 +84,15 @@ class BusinessCard extends Component {
                 {this.state.user.bio}
               </h2>
             </span>
-
+            <GithubButton user_name={this.state.user.github}/>
+            <GoogleDriveButton url={this.state.user.googleDrive} />
+            <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
+            <EmailButton email={this.state.user.email} />
             <FacebookButton user_name={this.state.user.facebook}/>
             <InstagramButton user_name={this.state.user.instagram}/>
             <SnapchatButton user_name={this.state.user.snapchat}/>
             <TikTokButton user_name={this.state.user.tikTok} />
-            <GithubButton user_name={this.state.user.github}/>
-            <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
-            <EmailButton email={this.state.user.email} />
+            
           </div>
         : null}
       </div>

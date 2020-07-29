@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     github: String,
     site_link: String,
     site_name: String,
+    googleDrive: String,
     dateCreated: Date
 });
 
