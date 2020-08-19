@@ -1,5 +1,5 @@
 
-![](client/src/assets/images/BuzzyBee_Logo.gif)
+![Logo](client/src/assets/images/BuzzyBee_Logo.gif)
 
 # BuzzyCard
 **A side project to take on Full-Stack development.**
@@ -13,9 +13,11 @@
 ## About BuzzyCard
 BuzzyCard is "SmartCard" business card alternative created as a project to show my skills and interests in building a full-stack web application.  
 The application is a MERN stack (thats MongoDB, Express, React, and Node.js) that uses a cards NFC (or QR code) to open a customised profile page for the user.
+![BuzzyCard](client/src/assets/images/card.jpeg)
 
 ## How to use your BuzzyCard
 It's easy as! Just tap the card on a supported phone, there's no extra app needed! If your phone isn't supported then you can easily scan the QR code on the card.
+![BuzzyCard Animation](client/src/assets/images/card.gif)
 
 
 ## Supported Phones (Capable of opening links through NFC)
