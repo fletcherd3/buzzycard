@@ -7,6 +7,7 @@ import OpenApp from "react-open-app";
 
 class GithubButton extends React.Component {
   render() {
+    // If no user_name is provided then return null component
     if (this.props.user_name === "") {
       return null
     }

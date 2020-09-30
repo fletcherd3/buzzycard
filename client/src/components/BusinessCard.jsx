@@ -1,89 +1,79 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import QueryString from 'query-string';
+import "../App.css";
+// Import Button components
 import FacebookButton from './FacebookButton'
 import InstagramButton from './InstagramButton';
 import SnapchatButton from './SnapchatButton';
 import GithubButton from './GithubButton';
 import CustomSiteButton from './CustomSiteButton';
-import "../App.css";
 import EmailButton from './EmailButton';
 import TikTokButton from './TikTokButton';
 import GoogleDriveButton from './GoogleDriveButton';
+
 
 class BusinessCard extends Component {
   constructor(props) {
     super(props)
     const params = QueryString.parse(this.props.location.search)
+    // Initialise state variables
     this.state = {
-      id: params.id,
-      user: null,
-      userError: false,
+      id: params.id,     // Id value from URL parameter
+      user: null,        // Store the user date JSON response
+      userError: false,  // True when the user cannot be found
       dev: false
     }
   }
 
+  fetchUser() {
+    // Fetch user with UserId = params.id
+    axios.get(`/users/${this.state.id}`)     // Send Get request to /users/:UserId
+        .then((response) => {
+          const { user } = response.data;    // Store response
+          this.setState({ user: user })
+        })
+        .catch(() => {
+          this.setState({ userError: true }) // User doesn't exist
+        });
+  };
+
   componentDidMount() {
-    if (this.state.dev) {
-      this.setState({user:{
-        "_id":"5ef431ea5be3030017e37864",
-        "name":"Fletcher Dick",
-        "bio":"👨‍💻 Studying Software Engineering at UC\n📍 Christchurch, NZ\n👶 20 yo",
-        "snapchat":"fletcher.dick",
-        "facebook":"fletcherd3",
-        "tikTok":"fletcherdick",
-        "email":"fletcherjdick@gmail.com",
-        "instagram":"fletcher_dick",
-        "github":"fletcherd3",
-        "site_link":"https://buzzycard.herokuapp.com/about",
-        "site_name":"More about BuzzyCard",
-        "googleDrive": "https://drive.google.com/file/d/1NdNbbqZVTVeapiALfIDcFvOY0rprdotP/view?usp=sharing",
-        "dateCreated":"2020-06-25T05:11:06.742Z",
-        "__v":0
-      }})
-    }
+    // When the page has mounted fetch the user
     this.fetchUser();
   };
 
-  fetchUser() {
-      axios.get(`/users/${this.state.id}`)
-          .then((response) => {
-            const { user } = response.data;
-            console.log(user)
-            this.setState({ user: user })
-          })
-          .catch(() => {
-            // User doesn't exist
-            this.setState({ userError: true })
-          });
-  };
 
   render() {
-    // New UserAboutPage
+    // New User returned, redirect to the /form page
     if (this.state.user != null && this.state.user.name === undefined) {
       this.props.history.push({
         pathname : '/form',
-        state : {id: this.state.user._id}
+        state : {id: this.state.user._id}  // Pass the users Id to the form page
       });
     }
+
     // Could not find user
     if (this.state.id === undefined || (this.state.userError && !this.state.dev)) {
+      // Redirect invalid request to the /about page
       this.props.history.push({
         pathname : '/about'
       });
     }
+
+    // Valid user returned :) Time to display data
     return (
       <div>
         {this.state.user != null ? 
+          // Return user page
           <div className="display">
-
             <h1 className="h1">{this.state.user.name}</h1>
-            
             <span style={{whiteSpace: "pre-line"}}>
               <h2 className="h2">
                 {this.state.user.bio}
               </h2>
             </span>
+            
             <GithubButton user_name={this.state.user.github}/>
             <GoogleDriveButton url={this.state.user.googleDrive} />
             <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />
@@ -94,7 +84,8 @@ class BusinessCard extends Component {
             <TikTokButton user_name={this.state.user.tikTok} />
             
           </div>
-        : null}
+        : null  // TODO: Send redirect to /about page
+        }
       </div>
     );
   }

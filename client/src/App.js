@@ -14,18 +14,18 @@ class App extends Component {
       <div className="App">
         <Header />
         <BrowserRouter>
-              <Switch>
-              <Route path="/" exact
-                render={(props) => <BusinessCard {...props} />}
-                />
-                <Route path="/form" exact
-                render={(props) => <Form {...props} />}
-                />
-                <Route path="/about" exact
-                render={(props) => <AboutPage {...props} />}
-                />
-                <Route path ="*" exact component={NotFound} />
-              </Switch>
+          <Switch>
+          <Route path="/" exact
+            render={(props) => <BusinessCard {...props} />}
+            />
+            <Route path="/form" exact
+            render={(props) => <Form {...props} />}
+            />
+            <Route path="/about" exact
+            render={(props) => <AboutPage {...props} />}
+            />
+            <Route path ="*" exact component={NotFound} />
+          </Switch>
         </BrowserRouter>
 
       </div>
