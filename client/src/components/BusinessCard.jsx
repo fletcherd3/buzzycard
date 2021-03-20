@@ -11,6 +11,7 @@ import CustomSiteButton from './CustomSiteButton';
 import EmailButton from './EmailButton';
 import TikTokButton from './TikTokButton';
 import GoogleDriveButton from './GoogleDriveButton';
+import LinkedInButton from './LinkedInButton';
 
 
 class BusinessCard extends Component {
@@ -73,7 +74,7 @@ class BusinessCard extends Component {
                 {this.state.user.bio}
               </h2>
             </span>
-            
+            <LinkedInButton user_name={this.state.user.linkedin} />
             <GithubButton user_name={this.state.user.github}/>
             <GoogleDriveButton url={this.state.user.googleDrive} />
             <CustomSiteButton name={this.state.user.site_name} url={this.state.user.site_link} />

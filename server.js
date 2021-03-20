@@ -14,7 +14,7 @@ const log = console.log;
 const PORT = process.env.PORT || 8080; 
 
 
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/my_database', {
+mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://heroku_hpcshbjs:Password1@buzzy-card-cluster.ohvhz.mongodb.net/heroku_hpcshbjs?retryWrites=true&w=majority', {
     useNewUrlParser: true
 });
 

@@ -13,7 +13,8 @@ const UserSchema = new Schema({
     site_link: String,
     site_name: String,
     googleDrive: String,
-    dateCreated: Date
+    dateCreated: Date,
+    linkedin: String
 });
 
 const User = mongoose.model('User', UserSchema);

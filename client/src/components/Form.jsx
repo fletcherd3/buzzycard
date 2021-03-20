@@ -29,7 +29,8 @@ class Form extends Component {
             site_linkErrorText: '',
             existingError: true,
             submitted: false,
-            googleDrive: ''
+            googleDrive: '',
+            linkedin: ''
         }
       }
 
@@ -90,7 +91,7 @@ class Form extends Component {
 
   submit = e => {
     e.preventDefault();
-    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive } = this.state;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive, linkedin } = this.state;
     axios({
       // url: '/add',
       url: `/update/${this.props.location.state.id}`,
@@ -106,7 +107,8 @@ class Form extends Component {
         github, 
         site_link,
         site_name,
-        googleDrive
+        googleDrive,
+        linkedin
       }
     })
     this.setState({ submitted: true });
@@ -173,6 +175,14 @@ class Form extends Component {
                   className="formInput"
                   onChange={this.handleChange}
                   label="👻 Snapchat"
+                />
+
+                <TextField
+                  name="linkedin"
+                  value={this.state.linkedin}
+                  className="formInput"
+                  onChange={this.handleChange}
+                  label="📇 LinkedIn"
                 />
 
                 <TextField

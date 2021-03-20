@@ -3,6 +3,7 @@ const { isEmpty } = require('lodash');
 const User = require('../models/user');
 const router = express.Router();
 
+// Save new user to the database
 router.post('/add', async (req, res) => {
     if (isEmpty(req.body)) {
         return res.status(403).json({
@@ -10,21 +11,11 @@ router.post('/add', async (req, res) => {
             statusCode: 403
         });
     }
-    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive} = req.body;
+    const { name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name, googleDrive, linkedin } = req.body;
 
     const newUser = new User({
-        name,
-        bio,
-        snapchat,
-        facebook,
-        tikTok,
-        email,
-        instagram,
-        github, 
-        site_link,
-        site_name,
-        googleDrive,
-        dateCreated: Date.now()
+        name, bio, snapchat, facebook, tikTok, email, instagram, github, site_link, site_name,
+        googleDrive, dateCreated: Date.now(), linkedin
     });
     try {
         await newUser.save();
@@ -41,7 +32,8 @@ router.post('/add', async (req, res) => {
             github, 
             site_link,
             site_name,
-            googleDrive
+            googleDrive,
+            linkedin
         });
     } catch (error) {
         console.log('Error: ', error);
@@ -52,6 +44,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
+// Update specific user
 router.post('/update/:id', async (req, res) => {
     try {
         await User.findByIdAndUpdate(req.params.id, req.body);
@@ -63,6 +56,7 @@ router.post('/update/:id', async (req, res) => {
        
 });
 
+// Get all users stored in database
 router.get('/users', async (req, res) => {
     try {
         const users = await User.find({});
@@ -77,6 +71,7 @@ router.get('/users', async (req, res) => {
        
 });
 
+// Get request to /users/:id
 router.get('/users/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -90,6 +85,5 @@ router.get('/users/:id', async (req, res) => {
     }
        
 });
-
 
 module.exports = router;
